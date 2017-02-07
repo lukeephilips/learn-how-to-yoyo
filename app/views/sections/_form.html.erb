@@ -1,0 +1,10 @@
+<%= render "layouts/errors", :object => @section %>
+
+<%= form_for @section do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+  <%= f.label :section_number %>
+  <%= f.number_field :section_number, class: 'form-control' %>
+  <%= f.submit class: 'btn btn-primary'%>
+<% end  %>

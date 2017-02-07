@@ -1,8 +1,8 @@
 <h1><%= @section.name %></h1>
-<!-- show all lessons in this section -->
-<%= @section.lessons.each do |lesson| %>
-<p><%= lesson.name %></p>
+<% @section.lessons.each do |lesson| %>
+  <p><%= link_to lesson.name, section_lesson_path(@section, lesson) %></p>
 <% end  %>
+
 <%= link_to "Add a lesson", new_section_lesson_path(@section) %>
 <p><%= link_to "Edit this section", edit_section_path(@section) %> |
 <%= link_to "Delete this section", section_path(@section),

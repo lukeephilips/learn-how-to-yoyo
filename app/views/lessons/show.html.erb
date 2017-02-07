@@ -1,4 +1,5 @@
 <h1><%= @lesson.name %></h1>
+<h2>Lesson # <%= @lesson.number%></h2>
 <% if @lesson.image%>
   <img src="<%= @lesson.image %>" class="img-rounded lessonImage">
 <% end %>
@@ -8,4 +9,11 @@
 <%= link_to "Delete this lesson", section_lesson_path(@lesson),
                                   :data=> {:confirm => "Are you sure?",
                                   :method => "delete"}%></p>
+
+<% if Lesson.find_by(number: @lesson.previous) %>
+  <p>Previous Lesson: <%= link_to Lesson.find_by(number: @lesson.previous).name, section_lesson_path(@lesson.section, Lesson.find_by(number: @lesson.previous)) %></p>
+<% end %>
+<% if Lesson.find_by(number: @lesson.next) %>
+  <p>Next Lesson: <%= link_to Lesson.find_by(number: @lesson.next).name, section_lesson_path(@lesson.section, Lesson.find_by(number: @lesson.next)) %></p>
+<% end %>
 <%= link_to "Back to all Sections", sections_path  %>
