@@ -1,0 +1,15 @@
+<h1>All Lessons</h1>
+
+<% if @lessons %>
+  <% @lessons.each do |lesson| %>
+    <h4><%= link_to lesson.name, lesson_path(lesson) %></h4>
+  <% end %>
+<% else %>
+<div class="">
+  <h3>No lessons yet. Teach yourself.</h3>
+</div>
+<% end %>
+<div class="links">
+  <%= link_to "Add a lesson", new_lesson_path %>
+</div>
+<img src="https://i2.wp.com/curiousasacathy.com/wp-content/uploads/2016/04/boyplayingyoyo.jpg" >

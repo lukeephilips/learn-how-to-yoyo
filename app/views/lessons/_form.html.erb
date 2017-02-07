@@ -1,0 +1,11 @@
+<%= render "layouts/errors", :object => @lesson %>
+
+<%= form_for @lesson do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+  <%= f.label :content %>
+  <%= f.text_area :content, class: 'form-control' %>
+  <%= f.label :image %>
+  <%= f.text_field :image, class: 'form-control' %>
+  <%= f.submit class: 'btn btn-primary'%>
+<% end  %>
