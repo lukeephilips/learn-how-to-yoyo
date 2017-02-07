@@ -1,8 +1,8 @@
 <h1>All Sections</h1>
 <% if @sections %>
-  <% @sections.each do |section|  %>
+  <% @sections.order(:section_number).each do |section|  %>
     <h3><%= link_to section.name, section_path(section) %></h3>
-    <% section.lessons.each do |lesson|  %>
+    <% section.lessons.order(:number).each do |lesson|  %>
       <h5><%= link_to lesson.name, section_lesson_path(section, lesson) %></h5>
     <% end %>
   <% end %>

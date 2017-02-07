@@ -1,6 +1,7 @@
 class SectionsController < ApplicationController
   def index
-    @sections = Section.all
+    @sections = Section.order(:section_number)
+
   end
 
   def show

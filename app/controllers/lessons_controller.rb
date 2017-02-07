@@ -29,6 +29,7 @@ class LessonsController < ApplicationController
   def edit
     @section = Section.find(params[:section_id])
     @lesson = Lesson.find(params[:id])
+    @sections = Section.all
   end
 
   def update
@@ -51,6 +52,6 @@ class LessonsController < ApplicationController
 
   private
   def lesson_params
-    params.require(:lesson).permit(:name, :content, :number, :image)
+    params.require(:lesson).permit(:name, :content, :number, :image, :section_id)
   end
 end
