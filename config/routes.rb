@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
   root :to => 'lessons#index'
-  resources :lessons
+  resources :sections do
+    resources :lessons
+  end
 end
