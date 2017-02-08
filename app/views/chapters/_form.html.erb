@@ -1,0 +1,9 @@
+<%= render "layouts/errors", :object => @chapter %>
+
+<%= form_for @chapter do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, class: 'form-control' %>
+  <%= f.label :chapter_number %>
+  <%= f.number_field :chapter_number, class: 'form-control' %>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

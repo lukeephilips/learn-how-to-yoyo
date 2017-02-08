@@ -1,7 +1,12 @@
 <%= render "layouts/errors", :object => @section %>
 
-<%= form_for @section do |f| %>
+<%= form_for [@chapter, @section] do |f| %>
 
+  <%= f.select(:chapter_id) do %>
+  <% @chapters.each do |c| -%>
+    <%= content_tag(:option, c.title, value: c.id) %>
+    <% end %>
+  <% end %>
   <%= f.label :name %>
   <%= f.text_field :name, class: 'form-control' %>
   <%= f.label :section_number %>

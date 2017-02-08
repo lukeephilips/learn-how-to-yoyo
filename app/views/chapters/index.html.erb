@@ -1,0 +1,13 @@
+<h1>All Chapters</h1>
+
+<% @chapters.order(:chapter_number).each do |chapter| %>
+  <h2><%= link_to chapter.title, chapter_path(chapter) %></h2>
+  <% chapter.sections.order(:section_number).each do |section| %>
+    <h3><%= link_to section.name, chapter_section_path(chapter, section) %></h3>
+    <% section.lessons.order(:number).each do |lesson| %>
+      <h5><%= link_to lesson.name, section_lesson_path(section, lesson) %></h5>
+    <% end %>
+  <% end %>
+<% end %>
+<hr>
+<h5><%= link_to "Add a new chapter", new_chapter_path %></h5>

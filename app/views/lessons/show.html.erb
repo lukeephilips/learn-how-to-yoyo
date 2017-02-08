@@ -16,4 +16,4 @@
 <% if @section.lessons.find_by(number: @lesson.next) %>
   <p>Next Lesson: <%= link_to @section.lessons.find_by(number: @lesson.next).name, section_lesson_path(@lesson.section, @section.lessons.find_by(number: @lesson.next)) %></p>
 <% end %>
-<%= link_to "Back to all Sections", sections_path  %>
+<%= link_to "Back to all Chapters", chapters_path  %>
